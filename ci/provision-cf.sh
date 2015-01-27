@@ -20,6 +20,7 @@ cat Vagrantfile
 sed -i'' -e "s/192.168.50.4/$PRIVATE_NETWORK_IP/" bin/add-route
 cat bin/add-route
 
+wget -N https://s3.amazonaws.com/bosh-lite-ci-pipeline/bosh-lite-${BOX_TYPE}-ubuntu-trusty-${BOSH_LITE_CANDIDATE_BUILD_NUMBER}.box
 box_add_and_vagrant_up $BOX_TYPE $PROVIDER $BOSH_LITE_CANDIDATE_BUILD_NUMBER
 
 set +e
