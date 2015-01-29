@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -ex
 
-export TERM=xterm
-export PATH=/var/lib/jenkins/.rbenv/shims:/var/lib/jenkins/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:$PATH
-export RBENV_VERSION=1.9.3-p547
-
 CUD=$(pwd)
 export TMPDIR=$(mktemp -d -u)
 
