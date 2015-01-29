@@ -8,6 +8,8 @@ trap cleanup EXIT
 
 clean_vagrant
 
+export VAGRANT_HOME=/var/vcap/data/.vagrant.d
+
 if [ ! -d '../cf-release' ]; then
   git clone --depth=1 https://github.com/cloudfoundry/cf-release.git ../cf-release
 fi
