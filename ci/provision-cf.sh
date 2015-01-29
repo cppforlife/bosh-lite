@@ -7,6 +7,7 @@ source $(dirname $0)/test_helpers.sh
 trap cleanup EXIT
 
 main() {
+  chruby 2.1.2
   clean_vagrant
   setup_directories
   set_vagrant_home
