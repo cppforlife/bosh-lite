@@ -10,7 +10,9 @@ main() {
   clean_vagrant
   setup_directories
   set_vagrant_home
-  setup_private_routing
+  if [ $BOX_TYPE == "virtualbox" ]; then
+    setup_private_routing
+  fi
   wget -N https://s3.amazonaws.com/bosh-lite-ci-pipeline/bosh-lite-${BOX_TYPE}-ubuntu-trusty-${BOSH_LITE_CANDIDATE_BUILD_NUMBER}.box
   box_add_and_vagrant_up $BOX_TYPE $PROVIDER $BOSH_LITE_CANDIDATE_BUILD_NUMBER
 
