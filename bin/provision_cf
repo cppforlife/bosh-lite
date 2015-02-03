@@ -13,6 +13,9 @@ main() {
   upload_stemcell
   build_manifest
   deploy_release
+
+  #cats
+  bosh run errand acceptance-tests
 }
 
 fetch_stemcell() {
