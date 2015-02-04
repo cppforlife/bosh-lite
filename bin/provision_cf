@@ -15,7 +15,8 @@ main() {
   deploy_release
 
   #cats
-  bosh run errand acceptance-tests
+  echo Running CATS...
+  bosh run errand acceptance_tests
 }
 
 fetch_stemcell() {
