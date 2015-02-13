@@ -1,5 +1,6 @@
 Vagrant.configure('2') do |config|
   config.vm.box = 'cloudfoundry/bosh-lite'
+  config.nfs.functional = false
 
   config.vm.provider :virtualbox do |v, override|
     override.vm.box_version = '2824'
