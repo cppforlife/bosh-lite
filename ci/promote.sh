@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e -x
+
+# todo use?
 
 promote() {
   git remote rm origin
   git remote add origin 'git@github.com:cloudfoundry/bosh-lite.git'
-  
+
   git push origin HEAD:master
 
   git fetch origin develop
@@ -13,8 +15,4 @@ promote() {
   git push origin HEAD:develop
 }
 
-main() {
-  promote
-}
-
-main
+promote

@@ -1,0 +1,14 @@
+---
+image: docker:///cppforlife/bosh-lite-ci
+
+inputs:
+- name: bosh-lite
+
+params:
+  BOSH_LITE_CANDIDATE_BUILD_NUMBER:
+  VAGRANT_CLOUD_ACCESS_TOKEN:
+  PIPELINE_BUCKET:
+  FINAL_BOXES_BUCKET:
+
+run:
+  path: bosh-lite/ci/publish-boxes.sh
