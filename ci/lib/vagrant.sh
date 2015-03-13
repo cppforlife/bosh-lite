@@ -19,7 +19,7 @@ set_up_vagrant_private_key() {
 }
 
 clean_vagrant() {
-  ( cd /tmp/builds/src/bosh-lite && vagrant destroy -f || true )
+  ( cd /tmp/build/src/bosh-lite && vagrant destroy -f || true )
 }
 
 # todo box_type vs provider
