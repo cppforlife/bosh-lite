@@ -1,7 +1,7 @@
 #!/bin/bash
 
 box_version() {
-  echo ${BOSH_LITE_CANDIDATE_BUILD_NUMBER:-`cat /tmp/builds/src/box-version/number`}
+  echo ${BOSH_LITE_CANDIDATE_BUILD_NUMBER:-`cat /tmp/build/src/box-version/number`}
 }
 
 download_box() {
