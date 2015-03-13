@@ -14,8 +14,8 @@ networks:
   type: dynamic
 
 update:
-  canary_watch_time: 5000 - 120000
-  update_watch_time: 5000 - 120000
+  canary_watch_time: 5000 - 600000
+  update_watch_time: 5000 - 600000
 
 compilation:
   network: default
