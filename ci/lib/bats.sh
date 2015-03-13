@@ -71,6 +71,6 @@ install_bats_prereqs() {
 run_bats_on_vm() {
   stemcell_os_name=$1
 
-  vagrant ssh -c "$(declare -r install_bats_prereqs); install_bats_prereqs;"
+  vagrant ssh -c "$(declare -f install_bats_prereqs); install_bats_prereqs"
   vagrant ssh -c "$(declare -f run_bats); run_bats 127.0.0.1 $stemcell_os_name"
 }
