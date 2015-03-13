@@ -2,10 +2,10 @@
 
 set -e -x
 
-source $(dirname $0)/vagrant.sh
-source $(dirname $0)/vbox.sh
-source $(dirname $0)/bats.sh
-source $(dirname $0)/box.sh
+source $(dirname $0)/lib/vagrant.sh
+source $(dirname $0)/lib/vbox.sh
+source $(dirname $0)/lib/bats.sh
+source $(dirname $0)/lib/box.sh
 
 cd bosh-lite
 
