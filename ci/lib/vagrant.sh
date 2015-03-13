@@ -12,7 +12,7 @@ set_up_vagrant_private_key() {
   if [ ! -f "$BOSH_LITE_PRIVATE_KEY" ]; then
     key_path=$(mktemp -d /tmp/ssh_key.XXXXXXXXXX)/value
     # todo stop using base64 once garden is fixed
-    echo $(echo "$BOSH_LITE_PRIVATE_KEY" | base64 -d 2>/dev/null) > $key_path
+    echo "$(echo "$BOSH_LITE_PRIVATE_KEY" | base64 -d 2>/dev/null)" > $key_path
     chmod 600 $key_path
     export BOSH_LITE_PRIVATE_KEY=$key_path
   fi
