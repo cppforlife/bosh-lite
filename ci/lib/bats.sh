@@ -17,12 +17,11 @@ run_bats() {
 
   cd bosh
 
-  rm -f $config_file
+  bundle install
 
   # the director may not be running yet, so allow one failure
   sleep 10
 
-  bundle install
   bundle exec bosh -c $config_file -n target $director_ip
 
   if [ -z "$BAT_STEMCELL" ]; then
@@ -63,8 +62,15 @@ EOF
   rm -f $config_file
 }
 
+install_bats_prereqs() {
+  sudo apt-get -y update
+  sudo apt-get install -y git libmysqlclient-dev libpq-dev libsqlite3-dev
+  gem install bundler --no-ri --no-rdoc
+}
+
 run_bats_on_vm() {
   stemcell_os_name=$1
 
+  vagrant ssh -c "$(declare -r install_bats_prereqs); install_bats_prereqs;"
   vagrant ssh -c "$(declare -f run_bats); run_bats 127.0.0.1 $stemcell_os_name"
 }
