@@ -8,6 +8,15 @@ export TERM=xterm
 # todo only cleanup when did vagrant up?
 trap clean_vagrant EXIT
 
+set_up_vagrant_private_key() {
+  if [ ! -f "$BOSH_LITE_PRIVATE_KEY" ]; then
+    key_path=$(mktemp -dt "$0")/ssh_key
+    echo "$BOSH_LITE_PRIVATE_KEY" > $key_path
+    chmod 600 $key_path
+    export BOSH_LITE_PRIVATE_KEY=$key_path
+  fi
+}
+
 clean_vagrant() {
   ( cd /tmp/builds/src/bosh-lite && vagrant destroy -f || true )
 }
