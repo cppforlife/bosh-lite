@@ -8,7 +8,7 @@ function enable_local_vbox() {
   # permit usage of vboxdrv node by tacking it into our own cgroup
   mkdir /tmp/devices-cgroup
   mount -t cgroup -o devices none /tmp/devices-cgroup
-  mount -t sysfs none /sys
+  mountpoint -q /sys || mount -t sysfs none /sys
   echo 'c 10:57 rwm' > /tmp/devices-cgroup/instance-$(hostname)/devices.allow
   echo 'c 10:55 rwm' > /tmp/devices-cgroup/instance-$(hostname)/devices.allow
 
