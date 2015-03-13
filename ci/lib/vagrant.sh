@@ -10,7 +10,7 @@ trap clean_vagrant EXIT
 
 set_up_vagrant_private_key() {
   if [ ! -f "$BOSH_LITE_PRIVATE_KEY" ]; then
-    key_path=$(mktemp -dt "$0")/ssh_key
+    key_path=$(mktemp -dt "$0.XXXXXXXXXX")/ssh_key
     # todo stop using base64 once garden is fixed
     echo $(echo "$BOSH_LITE_PRIVATE_KEY" | base64 -D) > $key_path
     chmod 600 $key_path
